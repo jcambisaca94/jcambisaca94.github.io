@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeferson Cambisaca - Mechanical Engineering Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveGrid 20s linear infinite;
+        }
+        
+        @keyframes moveGrid {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            padding: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.5em;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            opacity: 0.7;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section {
+            min-height: 100vh;
+            padding: 80px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .section-dark {
+            background: #0a0a0a;
+        }
+        
+        .section-light {
+            background: #1a1a1a;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+        
+        h2 {
+            font-size: 3em;
+            margin-bottom: 50px;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .stat-card {
+            background: rgba(102, 126, 234, 0.1);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+            border-color: #667eea;
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+        
+        .stat-number {
+            font-size: 3.5em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.2em;
+            opacity: 0.8;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .skill-category {
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+        
+        .skill-category h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+        
+        .skill-bar {
+            margin-bottom: 20px;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+        
+        .skill-progress {
+            height: 8px;
+            background: rgba(102, 126, 234, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            animation: fillBar 1.5s ease;
+        }
+        
+        @keyframes fillBar {
+            from { width: 0; }
+        }
+        
+        .experience-timeline {
+            position: relative;
+            padding-left: 50px;
+            margin-top: 50px;
+        }
+        
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            padding: 30px;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 15px;
+            border-left: 3px solid #667eea;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .timeline-item:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateX(10px);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -56px;
+            top: 30px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #667eea;
+            border: 3px solid #0a0a0a;
+        }
+        
+        .timeline-company {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #667eea;
+        }
+        
+        .timeline-role {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .timeline-date {
+            font-size: 0.9em;
+            opacity: 0.6;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-highlights {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .timeline-highlights li {
+            padding-left: 20px;
+            margin-bottom: 10px;
+            position: relative;
+            opacity: 0.8;
+        }
+        
+        .timeline-highlights li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+        }
+        
+        .contact-section {
+            text-align: center;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-btn {
+            padding: 20px 40px;
+            background: rgba(102, 126, 234, 0.1);
+            border: 2px solid #667eea;
+            border-radius: 50px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .contact-btn:hover {
+            background: #667eea;
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5em; }
+            .hero p { font-size: 1.2em; }
+            h2 { font-size: 2em; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .skills-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Jeferson Cambisaca</h1>
+            <p>Mechanical Engineering Professional</p>
+            <p style="font-size: 1em; margin-top: 20px; opacity: 0.7;">Transforming Complex Engineering Challenges into Streamlined Solutions</p>
+        </div>
+        <div class="scroll-hint">↓ Scroll to explore ↓</div>
+    </div>
+
+    <div class="section section-dark">
+        <div class="container">
+            <h2>Impact by Numbers</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Years of Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">30%</div>
+                    <div class="stat-label">Revision Cycle Reduction</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$1M+</div>
+                    <div class="stat-label">Projects Delivered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Technical Drawings</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section section-light">
+        <div class="container">
+            <h2>Technical Arsenal</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>3D CAD & Modeling</h3>
+                    <div class="skill-bar">
+                        <div class="skill-name">
+                            <span>PTC Creo</span>
+                            <span>Expert</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-name">
+                            <span>SolidWorks</span>
+                            <span>Expert</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-name">
+                            <span>AutoCAD</span>
+                            <span>Advanced</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-name">
+                            <span>Autodesk Inventor</span>
+                            <span>Advanced</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Engineering Analysis</h3>
+                    <div class="skill-bar">
+                        <div class="skill-name">
+                            <span>Finite Element Analysis (FEA)</span>
+                            <span>Advanced</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-name">
+                            <span>GD&T</span>
+                            <span>Expert</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-name">
+                            <span>Technical Documentation</span>
+                            <span>Expert</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-name">
+                            <span>BOM Management</span>
+                            <span>Advanced</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Specialized Skills</h3>
+                    <div class="skill-bar">
+                        <div class="skill-name">
+                            <span>Point Cloud to CAD</span>
+                            <span>Advanced</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-name">
+                            <span>Construction Drawings</span>
+                            <span>Expert</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-name">
+                            <span>Site Surveying</span>
+                            <span>Advanced</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-name">
+                            <span>Spanish (Bilingual)</span>
+                            <span>Fluent</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section section-dark">
+        <div class="container">
+            <h2>Career Journey</h2>
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-company">Schindler Elevator</div>
+                    <div class="timeline-role">Applications Designer</div>
+                    <div class="timeline-date">Oct 2022 - Present | Morristown, NJ</div>
+                    <ul class="timeline-highlights">
+                        <li>Leading custom elevator modernization designs with full safety compliance</li>
+                        <li>Reduced revision time by 20% through advanced FEA validation</li>
+                        <li>Mentoring junior engineers on CAD standards and best practices</li>
+                        <li>Optimizing standardized documentation for faster approvals</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-company">Designers Edge</div>
+                    <div class="timeline-role">Engineering Drafter</div>
+                    <div class="timeline-date">Feb 2021 - Dec 2021 | Union City, NJ</div>
+                    <ul class="timeline-highlights">
+                        <li>Converted 3D scan data into precise CAD floor plans</li>
+                        <li>Created as-built documentation with integrated 360° imagery</li>
+                        <li>Served commercial, residential, and industrial clients</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-company">Paulus Sokolowski & Sartor</div>
+                    <div class="timeline-role">Designer 1</div>
+                    <div class="timeline-date">Oct 2018 - Oct 2020 | Warren, NJ</div>
+                    <ul class="timeline-highlights">
+                        <li>Delivered 100+ pages of construction drawings for $1M+ gas line projects</li>
+                        <li>Improved team drawing accuracy by 25% through mentorship</li>
+                        <li>Conducted critical site surveys preventing costly redesigns</li>
+                        <li>Helped secure $1M+ engineering contract through technical excellence</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section section-light contact-section">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <p style="font-size: 1.3em; opacity: 0.8; max-width: 600px; margin: 0 auto;">
+                Ready to bring precision engineering and proven results to your team
+            </p>
+            <div class="contact-links">
+                <a href="mailto:jcambisaca94@gmail.com" class="contact-btn">📧 Email Me</a>
+                <a href="tel:+12018953118" class="contact-btn">📱 Call Me</a>
+            </div>
+            <p style="margin-top: 40px; opacity: 0.6;">
+                Based in Union City, NJ | Open to opportunities in the Greater NYC Metro Area
+            </p>
+        </div>
+    </div>
+</body>
+</html>
