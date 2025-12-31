@@ -64,7 +64,6 @@
             animation: fadeInUp 1s ease 0.2s both;
         }
 
-        /* Added style for the top resume button */
         .hero-btn {
             display: inline-block;
             margin-top: 30px;
@@ -226,6 +225,52 @@
         @keyframes fillBar {
             from { width: 0; }
         }
+
+        /* --- NEW PROJECT GALLERY STYLES --- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .project-card {
+            background: #1a1a1a;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 220px;
+            background: #252525;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .project-info p {
+            font-size: 0.9em;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+        /* --------------------------------- */
         
         .experience-timeline {
             position: relative;
@@ -345,6 +390,7 @@
             h2 { font-size: 2em; }
             .stats-grid { grid-template-columns: 1fr; }
             .skills-container { grid-template-columns: 1fr; }
+            .project-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -391,120 +437,60 @@
                 <div class="skill-category">
                     <h3>3D CAD & Modeling</h3>
                     <div class="skill-bar">
-                        <div class="skill-name">
-                            <span>PTC Creo</span>
-                            <span>Expert</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-fill" style="width: 95%"></div>
-                        </div>
+                        <div class="skill-name"><span>PTC Creo</span><span>Expert</span></div>
+                        <div class="skill-progress"><div class="skill-fill" style="width: 95%"></div></div>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-name">
-                            <span>SolidWorks</span>
-                            <span>Advanced</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-fill" style="width: 75%"></div>
-                        </div>
+                        <div class="skill-name"><span>SolidWorks</span><span>Advanced</span></div>
+                        <div class="skill-progress"><div class="skill-fill" style="width: 75%"></div></div>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-name">
-                            <span>AutoCAD</span>
-                            <span>Expert</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-fill" style="width: 95%"></div>
-                        </div>
+                        <div class="skill-name"><span>AutoCAD</span><span>Expert</span></div>
+                        <div class="skill-progress"><div class="skill-fill" style="width: 95%"></div></div>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-name">
-                            <span>Autodesk Inventor</span>
-                            <span>Advanced</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-fill" style="width: 85%"></div>
-                        </div>
+                        <div class="skill-name"><span>Autodesk Inventor</span><span>Advanced</span></div>
+                        <div class="skill-progress"><div class="skill-fill" style="width: 85%"></div></div>
                     </div>
                 </div>
 
                 <div class="skill-category">
                     <h3>Engineering Analysis</h3>
                     <div class="skill-bar">
-                        <div class="skill-name">
-                            <span>Finite Element Analysis (FEA)</span>
-                            <span>Advanced</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-fill" style="width: 90%"></div>
-                        </div>
+                        <div class="skill-name"><span>Finite Element Analysis (FEA)</span><span>Advanced</span></div>
+                        <div class="skill-progress"><div class="skill-fill" style="width: 90%"></div></div>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-name">
-                            <span>GD&T</span>
-                            <span>Expert</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-fill" style="width: 95%"></div>
-                        </div>
+                        <div class="skill-name"><span>GD&T</span><span>Expert</span></div>
+                        <div class="skill-progress"><div class="skill-fill" style="width: 95%"></div></div>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-name">
-                            <span>Technical Documentation</span>
-                            <span>Expert</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-fill" style="width: 95%"></div>
-                        </div>
+                        <div class="skill-name"><span>Technical Documentation</span><span>Expert</span></div>
+                        <div class="skill-progress"><div class="skill-fill" style="width: 95%"></div></div>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-name">
-                            <span>BOM Management</span>
-                            <span>Advanced</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-fill" style="width: 90%"></div>
-                        </div>
+                        <div class="skill-name"><span>BOM Management</span><span>Advanced</span></div>
+                        <div class="skill-progress"><div class="skill-fill" style="width: 90%"></div></div>
                     </div>
                 </div>
 
                 <div class="skill-category">
                     <h3>Specialized Skills</h3>
                     <div class="skill-bar">
-                        <div class="skill-name">
-                            <span>Point Cloud to CAD</span>
-                            <span>Moderate</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-fill" style="width: 60%"></div>
-                        </div>
+                        <div class="skill-name"><span>Point Cloud to CAD</span><span>Moderate</span></div>
+                        <div class="skill-progress"><div class="skill-fill" style="width: 60%"></div></div>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-name">
-                            <span>Construction Drawings</span>
-                            <span>Expert</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-fill" style="width: 95%"></div>
-                        </div>
+                        <div class="skill-name"><span>Construction Drawings</span><span>Expert</span></div>
+                        <div class="skill-progress"><div class="skill-fill" style="width: 95%"></div></div>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-name">
-                            <span>Site Surveying</span>
-                            <span>Moderate</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-fill" style="width: 60%"></div>
-                        </div>
+                        <div class="skill-name"><span>Site Surveying</span><span>Moderate</span></div>
+                        <div class="skill-progress"><div class="skill-fill" style="width: 60%"></div></div>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-name">
-                            <span>Spanish (Bilingual)</span>
-                            <span>Fluent</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-fill" style="width: 100%"></div>
-                        </div>
+                        <div class="skill-name"><span>Spanish (Bilingual)</span><span>Fluent</span></div>
+                        <div class="skill-progress"><div class="skill-fill" style="width: 100%"></div></div>
                     </div>
                 </div>
             </div>
@@ -512,6 +498,37 @@
     </div>
 
     <div class="section section-dark">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="project1.jpg" alt="Elevator Modernization" class="project-img">
+                    <div class="project-info">
+                        <h3>Elevator Modernization</h3>
+                        <p>Developed full-scale CAD assemblies and technical drawing packages for custom modernization projects at Schindler, ensuring 100% safety code compliance.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="project2.jpg" alt="FEA Analysis" class="project-img">
+                    <div class="project-info">
+                        <h3>Stress & Safety Analysis</h3>
+                        <p>Leveraged FEA validation tools to optimize component durability, resulting in a 20% reduction in design revision cycles and improved structural integrity.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="project3.jpg" alt="Infrastructure Design" class="project-img">
+                    <div class="project-info">
+                        <h3>Infrastructure Engineering</h3>
+                        <p>Created 100+ pages of construction documentation for $1M+ gas line projects, converting complex site survey data into high-precision technical blueprints.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section section-light">
         <div class="container">
             <h2>Career Journey</h2>
             <div class="experience-timeline">
@@ -553,7 +570,7 @@
         </div>
     </div>
 
-    <div class="section section-light contact-section">
+    <div class="section section-dark contact-section">
         <div class="container">
             <h2>Let's Connect</h2>
             <p style="font-size: 1.3em; opacity: 0.8; max-width: 600px; margin: 0 auto;">
